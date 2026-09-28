@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automatic Sanitizer IoT Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🧴 Automatic Sanitizer</h1>
+    <p>ESP32 IoT Dashboard</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Device Status</h2>
+      <div id="deviceStatus" class="badge off">OFFLINE</div>
+      <small id="lastSeen">Waiting for data...</small>
+    </section>
+
+    <section class="card">
+      <h2>Sensor Status</h2>
+      <div id="sensorStatus" class="badge off">-</div>
+    </section>
+
+    <section class="card">
+      <h2>Sanitizer Status</h2>
+      <div id="sanitizerStatus" class="badge off">-</div>
+    </section>
+
+    <section class="card">
+      <h2>Servo</h2>
+      <div id="servoStatus" class="badge off">-</div>
+    </section>
+
+    <section class="card">
+      <h2>Dispense Counter</h2>
+      <div class="big">Total Dispensed: <span id="count">0</span></div>
+    </section>
+
+    <section class="card">
+      <h2>Last Dispense</h2>
+      <div id="lastDispense" class="text">No dispense yet</div>
+    </section>
+
+    <section class="card wide">
+      <h2>Controls</h2>
+      <div class="buttons">
+        <button id="btnDispense" disabled>Manual Dispense</button>
+        <button id="btnReset" class="danger" disabled>Reset Counter</button>
+      </div>
+      <small id="controlNote">Buttons work only when the device is online and READY.</small>
+    </section>
+  </main>
+
+  <footer>
+    <span id="connStatus">Connecting to broker...</span>
+    <span id="deviceIdLabel"></span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/mqtt@5/dist/mqtt.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
